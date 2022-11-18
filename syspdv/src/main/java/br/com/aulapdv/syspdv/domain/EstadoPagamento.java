@@ -13,4 +13,12 @@ public enum EstadoPagamento {
         this.valor = valor;
         this.estadoPagamento = estadoPagamento;
     }
+
+    public Integer getValor() {
+        return valor;
+    }
+
+    public String getEstadoPagamento() {
+        return estadoPagamento;
+    }
 }

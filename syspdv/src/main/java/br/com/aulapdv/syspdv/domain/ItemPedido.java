@@ -1,38 +1,38 @@
 package br.com.aulapdv.syspdv.domain;
 
-import java.util.List;
-
 public class ItemPedido {
     
     private Double desconto;
     private Integer quantidade;
     private Double preco;
-    private List<Produto> produtos;
-    private List<Pedido> pedidos;
+    private Produto produto;
+    private Pedido pedido;
 
-    public ItemPedido() {
-    }
-
-    public ItemPedido(Double desconto, Integer quantidade, Double preco) {
+    public ItemPedido(Double desconto, Integer quantidade, Double preco, Produto produto, Pedido pedido) {
         this.desconto = desconto;
         this.quantidade = quantidade;
         this.preco = preco;
+        this.produto = produto;
+        this.pedido = pedido;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public ItemPedido() {
     }
 
     public Double getDesconto() {

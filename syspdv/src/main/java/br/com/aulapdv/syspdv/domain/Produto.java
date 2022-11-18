@@ -2,31 +2,38 @@ package br.com.aulapdv.syspdv.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
+@Entity
 public class Produto {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private Double preco;
-    private List<Categoria> categorias;
-    private ItemPedido itemPedido;
 
-    public Produto(Integer id, String nome, Double preco, List<Categoria> categorias, ItemPedido itemPedido) {
+    @ManyToMany
+    @JoinTable(name="PRODUTO_CATEGORIA", 
+        joinColumns=@JoinColumn(name="PRODUTO_ID"), 
+        inverseJoinColumns=@JoinColumn(name="CATEGORIA_ID"))
+    private List<Categoria> categorias;
+
+    private List<ItemPedido> itemPedidos;
+
+    public Produto(Integer id, String nome, Double preco) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
-        this.categorias = categorias;
-        this.itemPedido = itemPedido;
     }
 
     public Produto() {
-    }
-
-    public ItemPedido getItemPedido() {
-        return itemPedido;
-    }
-
-    public void setItemPedido(ItemPedido itemPedido) {
-        this.itemPedido = itemPedido;
     }
 
     public Integer getId() {
@@ -59,5 +66,13 @@ public class Produto {
 
     public void setCategorias(List<Categoria> categorias) {
         this.categorias = categorias;
+    }
+
+    public List<ItemPedido> getItemPedidos() {
+        return itemPedidos;
+    }
+
+    public void setItemPedidos(List<ItemPedido> itemPedidos) {
+        this.itemPedidos = itemPedidos;
     }
 }
