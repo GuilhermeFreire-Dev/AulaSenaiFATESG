@@ -29,20 +29,19 @@ public class Cliente {
     @Column(name="NUM_TELEFONE")
     private Set<String> telefones;
 
-    @OneToMany(mappedBy="cliente")
-    private List<Pedido> pedidos;
+    // @OneToMany(mappedBy="cliente")
+    // private List<Pedido> pedidos;
 
     @OneToMany(mappedBy="cliente")
     private List<Endereco> enderecos;
     
-    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente,
-            List<Pedido> pedidos, Set<String> telefone) {
+    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente, Set<String> telefone) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipoCliente = tipoCliente;
-        this.pedidos = pedidos;
+        // this.pedidos = pedidos;
         this.telefones = telefone;
     }
 
@@ -89,13 +88,13 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
+    // public List<Pedido> getPedidos() {
+    //     return pedidos;
+    // }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+    // public void setPedidos(List<Pedido> pedidos) {
+    //     this.pedidos = pedidos;
+    // }
 
     public Set<String> getTelefone() {
         return telefones;

@@ -10,34 +10,14 @@ public class ItemPedido {
     private Double desconto;
     private Integer quantidade;
     private Double preco;
-    private Produto produto;
-    private Pedido pedido;
 
     @EmbeddedId
     private ItemPedidoPK id;
 
-    public ItemPedido(Double desconto, Integer quantidade, Double preco, Produto produto, Pedido pedido) {
+    public ItemPedido(Double desconto, Integer quantidade, Double preco) {
         this.desconto = desconto;
         this.quantidade = quantidade;
         this.preco = preco;
-        this.produto = produto;
-        this.pedido = pedido;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
     public ItemPedido() {

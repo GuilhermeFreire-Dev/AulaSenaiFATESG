@@ -49,5 +49,4 @@ public class Pagamento {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
-
 }

@@ -1,7 +1,5 @@
 <h1>Curso de Arquitetura de Software</h1>
 <h4>SENAI FATESG</h4>
-<p></p>
-<p></p>
 <h2>Projeto: Sistema de Ponto de Venda</h2>
 <div>
     <img src="https://img.shields.io/badge/STATUS-Em%20Desenvolvimento-green?style=flat-square&logo=appveyor"/>
