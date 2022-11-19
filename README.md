@@ -4,9 +4,6 @@
 <p></p>
 <h2>Projeto: Sistema de Ponto de Venda</h2>
 <div>
-    <style>
-        display: flex;
-    </style>
     <img src="https://img.shields.io/badge/STATUS-Em%20Desenvolvimento-green?style=flat-square&logo=appveyor"/>
     <img src="https://img.shields.io/badge/Linguagem-Java%2018-red?style=flat-square&logo=appveyor"/>
     <img src="https://img.shields.io/badge/Framework-Spring-brightgreen?style=flat-square&logo=appveyor"/>
