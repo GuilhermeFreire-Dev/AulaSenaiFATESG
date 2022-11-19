@@ -3,17 +3,38 @@ package br.com.aulapdv.syspdv.domain;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Cliente {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String email;
     private String cpfOuCnpj;
     private TipoCliente tipoCliente;
-    private List<Pedido> pedidos;
-    private List<Endereco> enderecos;
-    private Set<String> telefone;
 
+    @ElementCollection
+    @CollectionTable(name="TELEFONE", joinColumns=@JoinColumn(name="CLIENTE_ID"))
+    @Column(name="NUM_TELEFONE")
+    private Set<String> telefones;
+
+    @OneToMany(mappedBy="cliente")
+    private List<Pedido> pedidos;
+
+    @OneToMany(mappedBy="cliente")
+    private List<Endereco> enderecos;
+    
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente,
             List<Pedido> pedidos, Set<String> telefone) {
         this.id = id;
@@ -22,7 +43,7 @@ public class Cliente {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipoCliente = tipoCliente;
         this.pedidos = pedidos;
-        this.telefone = telefone;
+        this.telefones = telefone;
     }
 
     public Cliente() {
@@ -77,11 +98,11 @@ public class Cliente {
     }
 
     public Set<String> getTelefone() {
-        return telefone;
+        return telefones;
     }
 
     public void setTelefone(Set<String> telefone) {
-        this.telefone = telefone;
+        this.telefones = telefone;
     }
 
     public List<Endereco> getEnderecos() {

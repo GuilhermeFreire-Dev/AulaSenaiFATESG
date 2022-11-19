@@ -2,6 +2,9 @@ package br.com.aulapdv.syspdv.domain;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class PagamentoComBoleto extends Pagamento {
     
     private LocalDate dataVencimento;

@@ -3,14 +3,37 @@ package br.com.aulapdv.syspdv.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Pedido {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDate instance;
-    private Endereco enderecoDeEntrega;
+
+    @ManyToOne
+    @JoinColumn(name="CLIENTE_ID")
     private Cliente cliente;
+
+    @OneToOne
+    @JoinColumn(name="PAGAMENTO_ID")
     private Pagamento pagamento;
+
+    @OneToMany
     private List<ItemPedido> itemPedidos;
+
+    @OneToOne
+    @JoinColumn(name="ENDERECO_ID")
+    private Endereco enderecoDeEntrega;
 
     public Pedido() {
     }

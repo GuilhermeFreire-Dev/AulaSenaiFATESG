@@ -1,5 +1,10 @@
 package br.com.aulapdv.syspdv.domain;
 
+import br.com.aulapdv.syspdv.repository.ItemPedidoPK;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+
+@Entity
 public class ItemPedido {
     
     private Double desconto;
@@ -7,6 +12,9 @@ public class ItemPedido {
     private Double preco;
     private Produto produto;
     private Pedido pedido;
+
+    @EmbeddedId
+    private ItemPedidoPK id;
 
     public ItemPedido(Double desconto, Integer quantidade, Double preco, Produto produto, Pedido pedido) {
         this.desconto = desconto;

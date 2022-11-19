@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -25,6 +26,7 @@ public class Produto {
         inverseJoinColumns=@JoinColumn(name="CATEGORIA_ID"))
     private List<Categoria> categorias;
 
+    @OneToMany
     private List<ItemPedido> itemPedidos;
 
     public Produto(Integer id, String nome, Double preco) {

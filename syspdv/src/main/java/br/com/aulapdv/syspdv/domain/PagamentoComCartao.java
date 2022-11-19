@@ -1,5 +1,8 @@
 package br.com.aulapdv.syspdv.domain;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class PagamentoComCartao extends Pagamento {
     
     private Integer numeroDeParcelas;
