@@ -29,8 +29,8 @@ public class Cliente {
     @Column(name="NUM_TELEFONE")
     private Set<String> telefones;
 
-    // @OneToMany(mappedBy="cliente")
-    // private List<Pedido> pedidos;
+    @OneToMany(mappedBy="cliente")
+    private List<Pedido> pedidos;
 
     @OneToMany(mappedBy="cliente")
     private List<Endereco> enderecos;
