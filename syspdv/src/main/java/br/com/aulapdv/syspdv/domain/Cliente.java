@@ -41,7 +41,6 @@ public class Cliente {
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipoCliente = tipoCliente;
-        // this.pedidos = pedidos;
         this.telefones = telefone;
     }
 
@@ -88,13 +87,13 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-    // public List<Pedido> getPedidos() {
-    //     return pedidos;
-    // }
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
 
-    // public void setPedidos(List<Pedido> pedidos) {
-    //     this.pedidos = pedidos;
-    // }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     public Set<String> getTelefone() {
         return telefones;
@@ -111,5 +110,4 @@ public class Cliente {
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
-    
 }
