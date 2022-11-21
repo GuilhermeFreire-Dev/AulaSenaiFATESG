@@ -26,7 +26,7 @@ public class Produto {
         inverseJoinColumns=@JoinColumn(name="CATEGORIA_ID"))
     private List<Categoria> categorias;
 
-    @OneToMany
+    @OneToMany(mappedBy="id.produto")
     private List<ItemPedido> itemPedidos;
 
     public Produto(Integer id, String nome, Double preco) {

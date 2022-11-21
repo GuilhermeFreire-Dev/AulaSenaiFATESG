@@ -24,11 +24,10 @@ public class Pedido {
     @JoinColumn(name="CLIENTE_ID")
     private Cliente cliente;
 
-    @OneToOne
-    @JoinColumn(name="PAGAMENTO_ID")
+    @OneToOne(mappedBy="pedido")
     private Pagamento pagamento;
 
-    @OneToMany
+    @OneToMany(mappedBy="id.pedido")
     private List<ItemPedido> itemPedidos;
 
     @OneToOne

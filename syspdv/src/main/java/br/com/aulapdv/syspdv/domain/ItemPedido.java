@@ -1,26 +1,27 @@
 package br.com.aulapdv.syspdv.domain;
 
-import br.com.aulapdv.syspdv.repository.ItemPedidoPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
 @Entity
 public class ItemPedido {
     
+    @EmbeddedId
+    private ItemPedidoPK id;
+
     private Double desconto;
     private Integer quantidade;
     private Double preco;
 
-    @EmbeddedId
-    private ItemPedidoPK id;
+    public ItemPedido(Produto produto, Pedido pedido) {
+        this.id = new ItemPedidoPK(produto, pedido);
+    }
 
-    public ItemPedido(Double desconto, Integer quantidade, Double preco) {
+    public ItemPedido(Double desconto, Integer quantidade, Double preco, Produto produto, Pedido pedido) {
         this.desconto = desconto;
         this.quantidade = quantidade;
         this.preco = preco;
-    }
-
-    public ItemPedido() {
+        this.id = new ItemPedidoPK(produto, pedido);
     }
 
     public Double getDesconto() {
@@ -45,5 +46,13 @@ public class ItemPedido {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Produto getProduto() {
+        return this.id.getProduto();
+    }
+
+    public Pedido getPedido() {
+        return this.id.getPedido();
     }
 }
